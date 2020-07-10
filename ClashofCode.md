@@ -9,16 +9,16 @@ Put parentheses around a series of words in an odd way.
 - The fourth set should be inside the third set and encase all words except the first one in the set.
 - Stop when there are no more words to put in the next set.
 
-For an example, consider the title of the problem:
-Inward Flowing Text Nest
-(Inward Flowing Text) Nest
-(Inward (Flowing Text)) Nest
-(Inward ((Flowing) Text)) Nest
-Input
-Line 1: A series of N words W separated by spaces.
-Output
-Line 1: The series of words W with parentheses placed around them.
-Constraints
+For an example, consider the title of the problem:  
+Inward Flowing Text Nest  
+(Inward Flowing Text) Nest  
+(Inward (Flowing Text)) Nest  
+(Inward ((Flowing) Text)) Nest  
+Input  
+Line 1: A series of N words W separated by spaces.  
+Output  
+Line 1: The series of words W with parentheses placed around them.  
+Constraints  
 1 ≤ N ≤ 100
 1 ≤ Length of W ≤ 50  
 Example  
