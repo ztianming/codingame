@@ -41,7 +41,6 @@ else:
     j=len(line)-1
     while i < j:
         # print(i,j)
-        # s,e=i,j
         # print(line[i:j], line[i], line[j])
         # print(line[i:j], line[i]==" ", line[j]==" ")
         rep="(" + line[i:j].strip() + ")"
