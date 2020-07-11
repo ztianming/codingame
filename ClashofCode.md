@@ -1,5 +1,5 @@
 # Clash of Code
-## Goal
+##  Goal
 Put parentheses around a series of words in an odd way.
 
 - There should be no parentheses surrounding the entire phrase.
@@ -25,8 +25,8 @@ Example
 Input  
 1 2 3 4 5  
 Output  
-(1 ((2 (3)) 4)) 5
-### Solution
+(1 ((2 (3)) 4)) 5  
+### Solution  
 ```python
 line = input()
 l = list(line.split())
@@ -58,3 +58,47 @@ else:
     # print("(1 ((2 (3)) 4)) 5")
     print(res)
 ```
+##  Goal
+Print loop if the path starting from the start checking point leads to an infinite loop, cul-de-sac otherwise.  
+Input
+Line 1: start the name of the start checking point  
+Line 2: n the total number of check point connections  
+Next n lines: Two space separated names prev and next for the name of a check point connected to a next check point in a one way direction (prev to next).  
+Output  
+loop or cul-de-sac  
+Constraints  
+Example  
+Input  
+cp6  
+4  
+cp4 cp9  
+cp9 cp5  
+cp6 cp1  
+cp1 cp4  
+Output  
+cul-de-sac  
+### solution  
+```python 
+start = input()
+n = int(input())
+d = {}
+for i in range(n):
+    prev, _next = input().split()
+    d[prev] = _next
+# print(d)
+v = d[start]
+f=False
+slow = fast = start
+while slow in d.keys() and fast in d.keys():
+    slow = d[slow]
+    fast = d[d[fast]]
+    if slow == fast:
+        f=True
+        break
+
+if f:
+    print("loop")
+else:
+    print("cul-de-sac")
+```
+
