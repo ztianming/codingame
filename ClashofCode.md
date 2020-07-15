@@ -109,12 +109,12 @@ Thanks to our mathematicians, the British have decrypted the entire German commu
 1=enemy submarine  
 
 Enemy submarines can shoot at 4 directions at once but they can't hit more than one ship in a single direction. Enemy torpedos will ignore and pass thru enemy submarines. For every enemy submarine, calculate the count of allied ships it can hit and print the total. For instance:
-
+```python
 **0*  
 1*10  
 **0*  
 0*0*  
-
+```
 There are 2 enemy submarines at coordinates (0,1) and (2,1). First submarine can hit 2 allied ships at locations (0,3) and (3,1). Second submarine can hit (2,0), (3,1) and (2,2). 2+3=5 allied ships at total, print 5. Notice how second submarine couldn't hit the target at (2,3) because they can't hit more than one ship in a single direction
 
 "I guess they never miss, huh?" - Winston Churchill  
@@ -133,9 +133,11 @@ Example
 Input  
 4  
 4  
+```python
 **0*  
 1*10  
 **0*  
 0*0*  
+```
 Output  
 5  
