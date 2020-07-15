@@ -101,4 +101,41 @@ if f:
 else:
     print("cul-de-sac")
 ```
+## Goal
+Thanks to our mathematicians, the British have decrypted the entire German communication! Now we can spot the exact location of their submarines. You'll be given an NxM matrix containing the allied ships and the enemy submarines. Tile description follows as:  
 
+*=empty  
+0=allied ship  
+1=enemy submarine  
+
+Enemy submarines can shoot at 4 directions at once but they can't hit more than one ship in a single direction. Enemy torpedos will ignore and pass thru enemy submarines. For every enemy submarine, calculate the count of allied ships it can hit and print the total. For instance:
+
+**0*  
+1*10  
+**0*  
+0*0*  
+
+There are 2 enemy submarines at coordinates (0,1) and (2,1). First submarine can hit 2 allied ships at locations (0,3) and (3,1). Second submarine can hit (2,0), (3,1) and (2,2). 2+3=5 allied ships at total, print 5. Notice how second submarine couldn't hit the target at (2,3) because they can't hit more than one ship in a single direction
+
+"I guess they never miss, huh?" - Winston Churchill  
+Input  
+Line 1: An integer N for the number of the rows  
+Line 2: An integer M for the number of the columns  
+Next N lines: M chars as contents of the row  
+Output  
+An integer that represents the total allied ships hit by enemy submarines  
+Constraints  
+Enemy submarines cannot hit more than one ship in a single direction  
+Enemy torpedos will ignore and pass thru enemy submarines  
+0 < N < 10  
+0 < M < 10  
+Example  
+Input  
+4  
+4  
+**0*  
+1*10  
+**0*  
+0*0*  
+Output  
+5  
