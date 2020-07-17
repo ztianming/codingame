@@ -141,3 +141,65 @@ Input
 ```
 Output  
 5  
+
+## Goal
+You ask your friend if you can borrow a sheet of paper for the pop quiz that your teacher just announced. He takes out his journal and writes the title of the quiz at the top left:  
+
+QUIZ########  
+############  
+############  
+############  
+############  
+############  
+############  
+############  
+
+But then your friend does the unthinkable: he tears the page from his journal without using the perforated line, so that you paper ends up looking like this:  
+
+QUIZ####  
+######  
+############  
+###########  
+########  
+##########  
+#######  
+####  
+
+What a ripoff. You decide to pull out some scissors to try to salvage the biggest rectangular area on the page without losing any part of the title. You decide to keep this portion of the page:
+
+QUIZ..##  
+......  
+......######  
+......#####  
+......##  
+......####  
+......#  
+####  
+
+That's 42 units of paper space, which is the best you can do.  
+
+Now, given any ripped sheet of paper with a title at the top, what is the biggest area you can get for a rectangular section that preserves the title?  
+Input  
+Line 1: H, the height of the paper.  
+Next H lines: A series of characters denoting the length of the paper at that row.  
+Output  
+Line 1: The biggest rectangular area you can trim from the piece of paper, keeping the title intact.  
+Constraints  
+1 ≤ H ≤ 200  
+The number of characters in any line is at least 1 and no greater than 200.  
+
+All characters will be #, except for parts of the title, which are alphanumeric characters appearing only in line 1 of the page on the very left.
+Title will be at least 1 character long.
+Example  
+Input  
+8  
+QUIZ####  
+######  
+############  
+###########  
+########  
+##########  
+#######  
+####  
+Output  
+42  
