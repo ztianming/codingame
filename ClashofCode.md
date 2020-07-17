@@ -203,3 +203,27 @@ QUIZ####
 ####  
 Output  
 42  
+### solution
+only 77%
+```python
+def GetNum(n, array):
+    maxArea = 0
+    for i in range(n):
+        minhigh = array[i]
+        for j in range(i, n):
+            minhigh = min(minhigh, array[j])
+            maxArea = max(maxArea, minhigh*(j-i+1))
+    return maxArea
+h = int(input())
+l = []
+wl=0
+for i in range(h):
+    line = input()
+    for i in line:
+        if i.isalpha():
+            wl+=1
+    l.append(len(line))
+# print(wl)
+res = GetNum(h, l)
+print(res)
+```
