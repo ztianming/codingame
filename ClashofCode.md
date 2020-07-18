@@ -227,3 +227,171 @@ for i in range(h):
 res = GetNum(h, l)
 print(res)
 ```
+##  	Goal
+Can a Rubik's cube be solved by Restickering™?  
+
+A popular method to pretend you can solve the Rubik's cube when no one's watching is to peel the stickers off and glue them back into place. It's not a very good method, as it tends to damage the stickers irreparably, but from a theoretical point of view it does the job.
+
+Feliks has left his scrambled cube on the table for only a few minutes, but as he comes back from his break, he notices an evil grin on Lucas's face. Has Lucas been messing around with the cube and spare stickers in a way that makes it unsolvable using the Restickering™ method? Help Feliks by telling him whether or not he can peel and glue the stickers back into place.
+
+You are given a cube state in pattern format. A solved cube looks like this:  
+
+    UUU  
+    UUU  
+    UUU  
+
+LLL FFF RRR BBB  
+LLL FFF RRR BBB  
+LLL FFF RRR BBB  
+
+    DDD  
+    DDD  
+    DDD  
+
+Letters ULFRBD mean “this sticker belongs on the Up/‌Left/‌Front/‌Right/‌Back/‌Down face”.
+
+A monochrome cube, e.g. with only U stickers, is obviously unsolvable using the Restickering™ method.
+
+A cube where an R′ move (right face counterclockwise quarter turn, in standard notation) has been applied is solvable using the Restickering™ method and looks like the example below.
+Input  
+11 lines (including 2 blank): a cube pattern  
+Output  
+SOLVABLE if it is possible to peel the stickers off and glue them back in a solved cube.  
+UNSOLVABLE otherwise.
+Constraints  
+Apart from the stickering, all cubes are standard 3×3×3 Rubik's cubes.  
+Only valid sticker colors are provided.    
+Example  
+Input  
+    UUB  
+    UUB  
+    UUB  
+
+LLL FFU RRR DBB  
+LLL FFU RRR DBB  
+LLL FFU RRR DBB  
+
+    DDF  
+    DDF  
+    DDF  
+Output  
+SOLVABLE  
+
+```python
+t=$<.read.scan(/\w/)
+$><<('ULFRBD'.chars.all?{|c|t.count(c)==9}?"":"UN")<<:SOLVABLE
+```
+```python
+all cases
+ R′
+    UUB
+    UUB
+    UUB
+
+LLL FFU RRR DBB
+LLL FFU RRR DBB
+LLL FFU RRR DBB
+
+    DDF
+    DDF
+    DDF
+SOLVABLE
+
+ Solved
+    UUU
+    UUU
+    UUU
+
+LLL FFF RRR BBB
+LLL FFF RRR BBB
+LLL FFF RRR BBB
+
+    DDD
+    DDD
+    DDD
+SOLVABLE
+
+ Pure White
+    UUU
+    UUU
+    UUU
+
+UUU UUU UUU UUU
+UUU UUU UUU UUU
+UUU UUU UUU UUU
+
+    UUU
+    UUU
+    UUU
+UNSOLVABLE
+
+04 L2 D R′ D′ F′ D′ R D′ R2 F2
+    DUD
+    DUU
+    BDL
+
+LLL UFF ULR FBF
+LLR BFF URB DBF
+FRD BUU BFB DBR
+
+    LRR
+    DDR
+    ULR
+SOLVABLE
+
+05 UF edge flip
+    UUU
+    UUU
+    UFU
+
+LLL FUF RRR BBB
+LLL FFF RRR BBB
+LLL FFF RRR BBB
+
+    DDD
+    DDD
+    DDD
+SOLVABLE
+
+06 UFR corner twist
+    UUU
+    UUU
+    UUF
+
+LLL FFR URR BBB
+LLL FFF RRR BBB
+LLL FFF RRR BBB
+
+    DDD
+    DDD
+    DDD
+SOLVABLE
+
+07 Random stickers
+    LRD
+    DFR
+    RBD
+
+ULF LRB DBD LLB
+RLL BUU BFD FFU
+BDR URL UDF RFL
+
+    FBU
+    LRU
+    DFU
+UNSOLVABLE
+
+08 More random stickers
+    BDL
+    DBL
+    LUR
+
+BFR BBD LUFDUR
+UBR RRD DLDFUR
+RBF FUU FRFBFD
+
+    UBF
+    LLD
+    LUR
+UNSOLVABLE
+```
