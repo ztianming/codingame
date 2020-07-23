@@ -110,6 +110,7 @@ def josephus(n, k):
             break
 print(j(n, 2))
 ```
+
 ```python
 def j(n,k):
     r=0
