@@ -422,3 +422,46 @@ Solution
 s=input()
 print(s[::2]+s[1::2][::-1])
 ```
+## Goal
+n clones of Fokz are standing in a circular order (numbered from 1 to n) . Number 1 has a sword. He kills the next person (i.e. No. 2) and gives the sword to the next (i.e. No. 3). All people do the same until only 1 survives. You are expected to output the number of the last survivor.
+{Where should the real Fokz stand so that he is the last survivor?}  
+Input  
+1 Line containing a number n  
+Output  
+Number of the last survivor  
+Constraints  
+1 <= n <= 10^5  
+Example  
+Input  
+5  
+Output  
+3  
+### Solution
+约瑟夫环
+```python
+def josephus(n, k):
+    # n代表总人数，k代表报数的数字
+    List = list(range(1, n + 1))
+    index = 0
+    while List:
+        temp = List.pop(0)
+        index += 1
+        if index == k:
+            index = 0
+            continue
+        List.append(temp)
+        if len(List) == 2:
+            print(List[-1])
+            break
+print(j(n, 2))
+```
+
+```python
+def j(n,k):
+    r=0
+    for i in range(1, n+1):
+        r=(r+k)%i
+    return r+1
+n = int(input())
+print(j(n, 2))
+```
