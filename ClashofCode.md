@@ -465,3 +465,57 @@ def j(n,k):
 n = int(input())
 print(j(n, 2))
 ```
+##  Goal
+Beginner astrophotographer Oleg took a photo of the night sky. Now he wants to find a number of constellations in it. This photo is h pixels in height and w pixels in width and each pixel is either a star (*) or an empty region (.). A star can be described by its coordinates (x, y) in the photo. He found following algorithm to identify constellations:
+
+0) Initially, each star is considered as a separate constellation  
+1) Choose two stars in different constellations. Let (x1, y1) and (x2, y2) be coordinates of those stars.  
+2) If the rectilinear distance between stars is under given threshold t, i.e. |x1 - x2|+|y1 - y2|≤ t, then merge corresponding constellations.  
+3) Repeat steps #1-2 until no merging occurs  
+
+Oleg asks you to implement above algorithm and count constellations in the photo.  
+Input  
+Line 1: Three space-separated integers h (height of the photo), w (width of the photo), t (distance threshold)  
+Next h lines: String representing a row of the photo. It consists of characters . (empty region) and * (star)  
+Output  
+Print a number of constellations in the photo  
+Constraints  
+1 ≤ h, w < 100  
+1 ≤ t < 200  
+Number of stars is guaranteed to be less than or equal to 256.  
+Example  
+Input  
+4 5 1  
+```python
+**...  
+*....  
+....*  
+...**  
+```
+Output  
+2  
+
+Solution
+```python
+h, w, t = [int(i) for i in input().split()]
+m = [input() for _ in range(h)]
+stars = []
+for i in range(h):
+    for j in range(w):
+        if m[i][j] == '*':
+            stars.append((i, j))
+const = list(range(len(stars)))
+for i in range(len(stars)):
+    c = const[i]
+    yi,xi = stars[i]
+    for j in range(i+1, len(stars)):
+        yj,xj = stars[j]
+        c2 = const[j]
+        if abs(yj-yi)+abs(xj-xi) <= t:
+            for k in range(len(const)):
+                if const[k] == c2:
+                    const[k] = c
+
+
+print(len(set(const)))
+```
