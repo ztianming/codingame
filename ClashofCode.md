@@ -519,3 +519,17 @@ for i in range(len(stars)):
 
 print(len(set(const)))
 ```
+##  	Goal
+Check if a given number N is a perfect r-th power. That is, check whether there exist integers a and r ≥ 2 such that a multiplied by itself r times is equal to N, i.e. a^r = N.
+Input  
+A line containing a single integer N.  
+Output  
+Perfect if N is a perfect power.  
+Flawed if N is not a perfect power.  
+Constraints  
+1 < N < 10^18  
+Example  
+Input  
+9  
+Output  
+Perfect  
