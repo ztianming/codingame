@@ -533,3 +533,16 @@ Input
 9  
 Output  
 Perfect  
+
+75%, for big cube case time out
+```python
+n = int(input())
+r = 2
+ans = "Flawed"
+end = int(n**0.5)
+for i in range(r, end+1):
+    if int(n**(1/i))**i == n:
+        ans = "Perfect"
+        break
+print(ans)
+```
