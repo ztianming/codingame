@@ -546,3 +546,44 @@ for i in range(r, end+1):
         break
 print(ans)
 ```
+## 	Goal
+Ali is given the number of visitors at her local theme park on N consecutive days. A day is record-breaking if it satisfies both of the following conditions:
+
+1) The number of visitors on the day is strictly larger than the number of visitors on each of the previous days.
+
+2) Either it is the last day, or the number of visitors on the day is strictly larger than the number of visitors on the following day.
+
+Note that the very first day could be a record-breaking day!  
+
+Please help Ali find out the number of record-breaking days R.  
+Input  
+Line 1: An integer N: The number of days.  
+Line 2: N space-separated integers: The number of visitors on each day.  
+Output  
+R - the number of record-breaking days.  
+Constraints  
+1 ≤ N ≤ 1000  
+Example  
+Input  
+8  
+1 2 0 7 2 0 2 0  
+Output  
+2  
+```python
+n = int(input())
+l = list(map(int, input().split()))
+bemax=l[0]
+
+res=0
+for i in range(n):
+    if i==0 and l[i] > l[i+1]:
+        res+=1
+    elif i<n-1:
+        if l[i] > bemax and l[i] > l[i+1]:
+            res+=1
+    else:
+        if l[i]>bemax:
+            res+=1
+    bemax = max(bemax, l[i])
+print(res)
+```
