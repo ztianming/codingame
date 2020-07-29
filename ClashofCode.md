@@ -587,3 +587,54 @@ for i in range(n):
     bemax = max(bemax, l[i])
 print(res)
 ```
+## Goal
+Determine the age of a tree by counting the number of rings in a horizontal cross-section of its trunk.
+
+You are presented with a 10×N grid representing a cross-section of a tree.
+
+Every year, the tree alternates between a phase of rapid and slow growth depending on the season.
+
+To compute the age of the tree, count the number of transitions between a cycle of rapid grow (line of 0), and slow growth (a line of 1).
+
+A few considerations:  
+
+- There is an arbitrary number of lines per cycle.  
+
+- The tree trunk is not perfect and you must expect to see errors (i.e a 0 instead of 1 or vice-versa) or unwanted particles (represented by any other printable character).  
+
+- However, on any given line there will always be 10 characters, and less errors than valid characters.  
+
+Here is an example:  
+0000001000  
+1111111111  
+111111?111  
+0000000000  
+The age of this tree is 2 years since there are 2 transitions.  
+Input  
+Line 1: An integer N representing the height of the grid  
+Next N lines: Lines of 10 characters representing a section of the tree trunk  
+Output  
+An integer representing the age of the tree  
+Constraints  
+0 < N ≤ 1000  
+Example  
+Input  
+2  
+0000000000  
+1111111111  
+Output  
+1  
+
+```
+n=int(input())
+l=[]
+res=0
+f=['0','1']
+for i in range(n):
+    t = list(input())
+    for j in f:
+        if t.count(j)>5:l.append(j)
+for i in range(len(l)-1):
+    if l[i]!=l[i+1]:res+=1
+print(res)
+```
