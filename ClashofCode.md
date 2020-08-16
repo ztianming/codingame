@@ -638,3 +638,77 @@ for i in range(len(l)-1):
     if l[i]!=l[i+1]:res+=1
 print(res)
 ```
+
+## Goal
+You are given a polynomial represented as a list of floats A,B,C,... of length M, where A,B,C... are coefficients used in the following way p(x) = A + BX + CX^2 + DX^3.... You must find the derivative with respect to X.
+
+The derivative D of a polynomial with respect to X is calculated in the following manner (letters represent constants, except for x)
+D (a*x^p) = a*p*x^(p-1)  
+D (a*x^p + b*x^q + c*x^r...) = D (a*x^p) + D (b*x^q) + D (c*x^r) ...  
+
+EXAMPLE DERIVATIVE:  
+D(13.421 + 14.2X + 6X^2) = 14.2 + 12X  
+Input  
+Line 1: An integer M for the length of the list of polynomial coefficients  
+Next M lines: The list of polynomial coefficients starting with the coefficient on x^0 A  
+Output  
+M - 1 lines: The list of polynomial coefficients starting with the coefficient on x^0 A rounded to the tenths place(5.1, 3.2, 19.3).  
+Constraints  
+2 ≤ M < 10  
+-500 ≤ A,B,C....(input polynomial) ≤ 500  
+-5000 ≤ A,B,C....(output polynomial) ≤ 5000  
+Example  
+Input  
+9  
+0  
+0  
+0  
+0  
+0  
+0  
+0  
+0  
+0  
+Output  
+0.0  
+0.0  
+0.0  
+0.0  
+0.0  
+0.0  
+0.0  
+0.0  
+
+### Solution
+```python
+m = int(input())
+res = []
+for i in range(m):
+    coefficient = float(input())
+    if i != 0:
+        res.append(round(coefficient*(i),1))
+
+for r in res:
+    print(r)
+```
+
+## 
+
+### Solution
+```python
+
+```
+
+## 
+
+### Solution
+```python
+
+```
+
+## 
+
+### Solution
+```python
+
+```
