@@ -692,10 +692,58 @@ for r in res:
     print(r)
 ```
 
-## 
+## 	Goal
+Fred works in a warehouse handling boxes. Every box has a reference number (up to 7 digits) printed on it.  
+
+Some numbers look like a different number if the box is upside-down.  
+Example: 18609 ➠ 60981. Fred calls these NUISANCE numbers.  
+
+Given a number, determine if it is a NUISANCE number (output yes or no).  
+
+In the font used by the box printer:  
+• an upside-down 0 looks like a 0  
+• an upside-down 1 looks like a 1  
+• an upside-down 6 looks like a 9  
+• an upside-down 8 looks like a 8  
+• an upside-down 9 looks like a 6  
+
+A number which looks the same when upside-down (Example: 86098 ➠ 86098) is NOT a NUISANCE number.  
+Input  
+The number printed on the box, N  
+Output  
+yes if N is a NUISANCE number  
+no if N is not a NUISANCE number  
+Constraints  
+N is an integer with no more than 7 digits  
+Example  
+Input  
+6  
+Output  
+yes  
 
 ### Solution
+note:if [2,5,7] in n, is not nuisance number.
 ```python
+import sys
+import math
+
+# Auto-generated code below aims at helping you parse
+# the standard input according to the problem statement.
+
+n = input()
+d = {'6':'9', '9':'6'}
+# Write an answer using print
+# To debug: print("Debug messages...", file=sys.stderr, flush=True)
+res = ""
+for i in n[::-1]:
+    if i in d:
+        res+=d[i]
+    else:
+        res+=i
+if '5' in n or '7' in n or '2' in n or res == n:
+    print("no")
+else:
+    print("yes")
 
 ```
 
