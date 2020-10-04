@@ -747,11 +747,38 @@ else:
 
 ```
 
-## 
+##  	Goal  
+Turn an input name into a palindrome using this simple concept:
+
+Take a name like "Abe Simpson" and alternate each letter with the reverse name "nospmiS ebA" to get:  
+
+Abe Simpson +  
+nospmiS ebA =  
+Anboes pSmiimSp seobnA  
+
+Now you have your name Palindromified!  
+
+Take an input string (name) and Palindromify it!  
+Input  
+A single line: A string representing a name  
+Output  
+A single line: The Palindromified name (formed by reading characters alternately from left and right).  
+Constraints  
+Input names will have no double whitespace characters and will only use Latin (and Latin-1 Supplement e.g. ãéïôñ) unicode characters.  
+Example  
+Input  
+Rihanna  
+Output  
+RainhnaanhniaR  
 
 ### Solution
 ```python
-
+name = input()
+res = ""
+for i,j in zip(name, name[::-1]):
+    res+=i
+    res+=j
+print(res)
 ```
 
 ## 
