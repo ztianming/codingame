@@ -802,3 +802,89 @@ Output
 ```python
 
 ```
+
+## Goal
+A message has been encrypted with Pi cipher encryption.
+You need to print the decrypted message.  
+
+In the Pi cipher encryption, each character is shifted by the value of the digit in Pi at the position of the letter in the message skipping non-letter characters (ex: 'T' is the 3rd letter in 'HI THERE', so its position is 3)  
+
+Only shift if it is a letter.  
+All characters in the input are upper case.  
+
+For your information: Pi starts with 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+
+Example:  
+```
+Original message:  HELLO WORLD!  
+Pi used as a key:  31415 92653  
+Encrypted message: KFPMT FQXQG!  
+```
+
+Again, you have to decrypt the message, not encrypt it.  
+Input  
+A string s which you need to decrypt  
+Output  
+A string which is the decrypted message  
+Constraints  
+1 ≤ s length ≤ 100  
+Letters in s are capital only.  
+Example  
+Input  
+KFPMT FQXQG!  
+Output  
+HELLO WORLD!  
+
+### Solution
+```python
+import sys
+import math
+
+# Auto-generated code below aims at helping you parse
+# the standard input according to the problem statement.
+
+s = input()
+p="31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
+# Write an answer using print
+# To debug: print("Debug messages...", file=sys.stderr, flush=True)
+res = ""
+k=0
+for i,c in enumerate(s):
+    if c.isalpha():
+        # print(p[k])
+        res += chr(65+(ord(c)-65-int(p[k]))%26)
+        k+=1
+    else:
+        res += c
+print(res)
+```
+
+
+### Solution
+```python
+
+```
+
+
+### Solution
+```python
+
+```
+
+
+### Solution
+```python
+
+```
+
+
+### Solution
+```python
+
+```
+
+
+### Solution
+```python
+
+```
