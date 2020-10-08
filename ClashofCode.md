@@ -860,9 +860,38 @@ print(res)
 ```
 
 
+## Goal
+A government has a progressive tax system.  
+
+- First $5,000 of income ($1 - $5,000) - taxed at 0% (no tax)  
+- Next $5,000 of income ($5,001 - $10,000) - taxed at 5%  
+- Next $10,000 of income ($10,001 - $20,000) - taxed at 10%  
+- Next $20,000 of income ($20,001 - $40,000) - taxed at 20%  
+- Afterwards ($40,001 onwards) - taxed at 30%  
+
+If you are taxed $X, how much was your income? Assuming that your income is an integer dollar value. If there are multiple possible answers, give the lowest possible amount.  
+
+More specifically, find the minimum integer dollar value of income N such that incomeTax(N) = X. For example, if you are taxed $1.25, then your income is $5,025.  
+Input  
+Line 1: X - the income tax, represented as a number with 2 decimal points  
+Output  
+Line 1: N  
+Constraints  
+0 ≤ X ≤ 500000  
+Example  
+Input  
+1.25  
+Output  
+5025  
+
+
 ### Solution
 ```python
 
+x=float(input())
+n=5e3*(x>0)
+for i in[1,2,4]:v=min(250*i*i,x);n+=v*20/i;x-=v
+print(int(n+x*10/3))
 ```
 
 
