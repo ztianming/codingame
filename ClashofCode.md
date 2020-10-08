@@ -781,7 +781,22 @@ for i,j in zip(name, name[::-1]):
 print(res)
 ```
 
-## 
+## 	Goal
+Junior did a big mistake. He deleted the FileSystem of his computer. Now he is left only with the root folder ("/"). Fortunately he has a backup. However the backup tool is quite basic, and Junior has to re-create by hands all the folders. Junior has the list of paths of the folders to be restored from back-up. He wants to know how many folders must be created to achieve the full restore.  
+Input  
+Line 1: an Integer N, the number of paths of folders to be restored
+N following lines: a string representing the path of a folder to be restored.  
+Output  
+Number of folders that must be created  
+Constraints  
+Each path is given in the Unix format (e.g. /usr/local/bin), and uses only alphanum characters.  
+Each path starts with "/" and ends with an alphanum.  
+Example  
+Input  
+1  
+/usr/bin  
+Output  
+2  
 
 ### Solution
 ```python
