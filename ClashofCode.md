@@ -894,10 +894,38 @@ for i in[1,2,4]:v=min(250*i*i,x);n+=v*20/i;x-=v
 print(int(n+x*10/3))
 ```
 
-
+## Goal
+Kanji are symbols used by Japanese people to form words.
+Traditionally, these symbols are written vertically.
+Given a sentence, you must transcribe it vertically, in the same way as kanji.
+Input  
+n : The maximum vertical size of a column.  
+s : A string of characters written horizontally.  
+Output  
+The string s written vertically from the top to the bottom and from the right to the left.  
+The last column must be filled with spaces.  
+Constraints  
+Example  
+Input  
+4  
+Hello World  
+Output  
+```
+roH  
+l e  
+dWl  
+ ol  
+```
 ### Solution
 ```python
-
+n=int(input())
+s=input()
+l= [""]*n
+k=int(len(s)/n+0.5)
+for i,c in enumerate(s):
+    l[i%n]=c+l[i%n]
+for i in l:
+    print((k-len(i))*" "+i)
 ```
 
 
