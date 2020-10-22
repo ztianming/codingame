@@ -927,10 +927,61 @@ for i,c in enumerate(s):
 for i in l:
     print((k-len(i))*" "+i)
 ```
+## 	Goal
+You are given two sorted lists of positive integers, A and B.
 
+Find all the integers, Z that are divisible by all integers in list A (Z mod A = 0) and also divide all integers in list B (B mod Z = 0).
+
+If no intermediate factors exist, just print "None".
+Input  
+Line 1: Two integers, sizeA and sizeB separated by a space, denoting the sizes of lists A and B.  
+Line 2: sizeA space separated integers in list A.  
+Line 3: sizeB space separated integers in list B.  
+Output  
+Line 1: A space separated list of integers that are evenly divisible by all integers in list A and evenly divide all integers in list B.  
+If no intermediate factors exist, just print "None".  
+Constraints  
+1 ≤ A, B < 2^31 - 1  
+1 ≤ sizeA, sizeB ≤ 10  
+Example  
+Input  
+2 3  
+2 3  
+6 12 24  
+Output  
+6  
 
 ### Solution
 ```python
+import sys
+import math
+
+# Auto-generated code below aims at helping you parse
+# the standard input according to the problem statement.
+def gbs(s):
+    if len(s) <=1:
+        return s[0]
+    a,b = s[0],s[1]
+    a = a // math.gcd(a, b) * b // math.gcd(a, b) * math.gcd(a, b)
+    if len(s)>2:
+        for i in range(2,len(s)):
+            b = s[i]
+            a = a//math.gcd(a,b) * b//math.gcd(a,b) * math.gcd(a, b)
+    return a
+
+size_a, size_b = [int(i) for i in input().split()]
+al = list(map(int,input().split()))
+bl = list(map(int,input().split()))
+
+g = gbs(al)
+res = []
+for i in range(1,bl[0]+1):
+    if i%g==0 and all(b%i==0 for b in bl):
+        res.append(i)
+if res:
+    print(*res)
+else:
+    print("None")
 
 ```
 
