@@ -984,11 +984,36 @@ else:
     print("None")
 
 ```
-
+##  	Goal  
+It is NOW (time) and we must arrive at ARRIVAL (time), but the duration of the travel is DURATION minutes. Are we late?  
+Input  
+Line 1: A string NOW representing the current time  
+Line 2: A string ARRIVAL representing the wanted arrival time  
+Line 3: A number DURATION representing the number of minutes needed to get there  
+Output  
+A line with "OK" if we are on time, otherwise a line with "LATE"  
+Constraints  
+Example  
+Input  
+15:32   
+16:45  
+35  
+Output  
+OK  
 
 ### Solution
 ```python
+from dateutil.parser import parse
+n = input()
+a = input()
 
+d = int(input())
+
+res = (parse(a)-parse(n)).seconds
+if res >= d*60:
+    print("OK")
+else:
+    print("LATE")
 ```
 
 
