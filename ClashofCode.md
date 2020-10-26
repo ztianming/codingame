@@ -1016,6 +1016,67 @@ else:
     print("LATE")
 ```
 
+## Goal  
+The Intersection over Union (IoU) is known to be a good metric for measuring overlap between two bounding boxes or masks.  
+
+It is calculated as Area of the intersection / Area of the union.  
+
+You will receive two bounding boxes:  
+- x_1, y_1, w_1, h_1  
+- x_2, y_2, w_2, h_2  
+where x and y represent the top-left coordinate and w and h represent the width and the height.  
+
+Compute the IoU!  
+
+Warning:  
+- The test cases are defined in a way that no approximation are   required (e.g., no result is 0.33333333...).  
+- Get rid of trailing 0s (1.0 should be 1).  
+Input  
+Line 1: x_1, y_1, w_1, h_1  
+Line 2: x_2, y_2, w_2, h_2  
+Output  
+Line 1: The IoU  
+Constraints  
+0 ≤ x_1, y_1, x_2, y_2 < 1000  
+0 < w_1, h_1, w_2, h_2 < 1000  
+Example  
+Input  
+1 1 2 2  
+2 1 2 3  
+Output  
+0.25  
+### Solution
+```python
+def computeArea( A,B,C,D,E,F,G,H):
+  area_max=abs(C-A)*abs(D-B)+abs(G-E)*abs(H-F)
+  
+  if C<=E or G<=A or D<=F or H<=B:return 0
+  else:
+      rx = min(G,C)-max(A,E)
+      ry = min(D, H)-max(B,F)
+      return (abs(rx*ry))/(area_max - abs(rx*ry))
+
+x1, y1, w1, h1 = map(int, input().split())
+x2, y2, w2, h2 = map(int, input().split())
+
+res = computeArea(x1, y1, x1+w1, y1+h1, x2,y2, x2+w2, y2+h2)
+if res == int(res):res = int(res)
+print(res)
+```
+
+
+### Solution
+```python
+
+```
+
+
+### Solution
+```python
+
+```
+
+
 
 ### Solution
 ```python
