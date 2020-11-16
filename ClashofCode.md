@@ -1091,10 +1091,45 @@ s+=str(l[-1])
 print(s)
 ```
 
+## 	Goal
+Given a set of N integers (P1,P2...Pn), and a sequence of consecutive increasing integers, starting at X : (X,X+1,X+2,...)
+Remove any values from the sequence which are multiples of any member of the set and return the Cth remaining value of the sequence.  
+
+For example: Consider a set with N=2 integers (P1=2, P2=3); and a sequence starting with X=1 : ( 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 ... )  
+
+From this sequence we remove all multiples of our N integers in the set (P1..Pn), so in this example we remove all multiples of 2 and 3, giving: 1 5 7 11 13 17...  
+
+Finally, we take the Cth number from the resulting sequence, let's say in this example C=5 so then our answer = 13.  
+Input  
+Line 1: 3 space-separated integers N set size, X sequence start, C the enumerated result to return.  
+Next N lines: An integer Pi in the set.  
+Output  
+The Cth value remaining from the sequence after removing those which are multiples of any member of the set.  
+Constraints  
+1 ≤ N ≤ 99  
+1 ≤ X ≤ 10^6  
+1 ≤ C ≤ 10^5  
+2 ≤ Pi ≤ 999  
+Example  
+Input  
+2 1 5  
+2  
+3  
+Output  
+13  
 
 ### Solution
 ```python
-
+n,x,c=map(int, input().split())
+l=[]
+for i in range(n):l+=[int(input())]
+while c>0:
+    f=1
+    for p in l:
+        if x%p==0:f=0
+    if f:c-=1   
+    x+=1
+print(x-1)
 ```
 
 
