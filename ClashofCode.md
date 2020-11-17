@@ -1132,9 +1132,69 @@ while c>0:
 print(x-1)
 ```
 
+## 	Goal
+As you know, unicorns are nearly extinct. It is your mission to supply the world with unicorns aged just right for whatever purpose they'll serve. You'll be given an age and are to produce an ascii-unicorn of that age.
+Input
+Line 1: An integer age specifying the unicorn's age.
+Output
+You are to produce a unicorn following the "International Unicornial Standard 6887 specification" (which you might want to copy and paste) as follows:
 
+A basic unicorn looks like this:
+```
+ _oO^____
+(._,     \
+   \  _\ /\
+    || ||
+~~~~~~~~~~~~~
+```
 
+With age, it's horn grows by one \ a year. A one year old unicorn will hence look like this:
+```
+  \
+ _oO^____
+(._,     \
+   \  _\ /\
+    || ||
+~~~~~~~~~~~~~
+```
+A unicorn of age 2 looks like this:
+```
+ \
+  \
+ _oO^____
+(._,     \
+   \  _\ /\
+    || ||
+~~~~~~~~~~~~~
+```
+Constraints  
+0 ≤ age ≤ 100 as unicorns only get 100 years old.  
+
+Unicorn must be as far left as possible.  
+No trailing spaces.  
+No extra lines.  
+Example  
+Input  
+1  
+Output
+```
+  \
+ _oO^____
+(._,     \
+   \  _\ /\
+    || ||
+~~~~~~~~~~~~~
+```
 ### Solution
 ```python
-
+a = int(input())
+hl = []
+bl=[' _oO^____','(._,     \\','   \  _\ /\\','    || ||','~~~~~~~~~~~~~']
+o=e=0
+if a<=3:o=3-a
+else:e=a-3
+for i in range(1,a+1):hl.append(' '*(o+i-1)+'\\')
+if a>0:
+    for h in hl:print(h)
+for b in bl:print(' '*e+b)
 ```
