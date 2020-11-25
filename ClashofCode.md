@@ -1198,3 +1198,48 @@ if a>0:
     for h in hl:print(h)
 for b in bl:print(' '*e+b)
 ```
+
+##  Goal
+
+You are hired by a construction company because of your fantastic skills. They have some tasks to do and they will tell you the time each of them will take and the number of workers available. You'll need to calculate the total time to finish all tasks in order with the workers.  
+
+A task must be assigned to a single worker. That worker must complete the task before being available for re-assignment to an awaiting task.  
+Input  
+Line 1: An integer N for the number of workers  
+Line 2: An integer S for the number of tasks  
+Line 3: S integers separated by spaces representing the time each task will take in order  
+Output  
+An integer representing the total time to finish all tasks which are started in order with the workers.  
+Constraints  
+1 ≤ N ≤ 100  
+1 ≤ S ≤ 50  
+1 ≤ Length of every task < 2^31  
+Example  
+Input  
+2  
+6  
+1 2 3 4 5 6  
+Output  
+12  
+
+solution
+
+```python
+# method 1 shortest
+I=input
+n=int(I())
+s=I()
+l=[0]*n
+for i in I().split():l[0]+=int(i);l.sort()
+print(max(l))
+
+# method 2
+n=int(input())
+s=input()
+l=list(map(int, input().split()))
+t=[0]*n
+for r in l:
+    i=t.index(min(t))
+    t[i]+=r
+print(max(t))
+```
