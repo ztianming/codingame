@@ -1243,3 +1243,33 @@ for r in l:
     t[i]+=r
 print(max(t))
 ```
+## Goal
+
+You are a hacker, and just breaked through a new website database. You found out that user's passwords are encrypted with a custom algorithm: base4. You must reverse the algorithm and decrypt the passwords.  
+
+Base4 is a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-4 representation.  
+Input  
+Line 1: An integer N for the number of passwords  
+Next N lines: The passwords to decrypt  
+Output  
+N lines: The decrypted passwords  
+Constraints  
+1 ≤ N ≤ 100  
+passwords length ≤ 64  
+passwords length is a multiple of 4  
+passwords contains only digits from 0 to 3  
+Example  
+Input  
+1  
+120112021203  
+Output  
+abc  
+```python
+n = int(input())
+for i in range(n):
+    password = input()
+    res=""
+    for i in range(0,len(password),4):
+        res+=chr(int(password[i:i+4], 4))
+    print(res)
+```
